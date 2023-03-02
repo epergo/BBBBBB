@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://drggo8rnec4t3"]
+
+[ext_resource type="Texture2D" uid="uid://5v15dyxcvun0" path="res://assets/art/effects/clouds.png" id="1_w2e7s"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c6oa"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_l2n1p"]
+offsets = PackedFloat32Array(0, 0.306931, 0.767327, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.588235, 1, 1, 1, 0.588235, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wegvc"]
+gradient = SubResource("Gradient_l2n1p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_seeag"]
+emission_shape = 3
+emission_box_extents = Vector3(700, 700, 1)
+particle_flag_disable_z = true
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = 180.0
+angle_max = 180.0
+color_ramp = SubResource("GradientTexture1D_wegvc")
+anim_offset_max = 1.0
+
+[node name="Clouds" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_4c6oa")
+amount = 35
+process_material = SubResource("ParticleProcessMaterial_seeag")
+texture = ExtResource("1_w2e7s")
+lifetime = 5.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5mdspxns5eya"]
+
+[ext_resource type="Theme" uid="uid://cxbrm7d7tjurl" path="res://assets/theme/theme.tres" id="1_s8mv5"]
+
+[node name="AnimatedButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("1_s8mv5")
+text = "TEST TEXT
+"

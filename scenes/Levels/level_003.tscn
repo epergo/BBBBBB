@@ -1,0 +1,46 @@
+[gd_scene load_steps=11 format=3 uid="uid://baegte1w4ij8h"]
+
+[ext_resource type="PackedScene" uid="uid://cr4ac7u8awrgg" path="res://scenes/base_level.tscn" id="1_ivmhq"]
+[ext_resource type="PackedScene" uid="uid://rui7006n5ncm" path="res://scenes/Levels/Level003/003_01.tscn" id="10_7wrst"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_02.tscn" id="19_dtwww"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_03.tscn" id="20_dqu7m"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_04.tscn" id="21_cjjbf"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_05.tscn" id="22_q7kj5"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_06.tscn" id="23_2cskt"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_07.tscn" id="24_lsfbx"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_08.tscn" id="25_373gd"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level003/003_09.tscn" id="26_jqk2p"]
+
+[node name="Level003" instance=ExtResource("1_ivmhq")]
+
+[node name="01" parent="Screens" index="0" instance=ExtResource("10_7wrst")]
+
+[node name="02" parent="Screens" index="1" instance=ExtResource("19_dtwww")]
+position = Vector2(0, -240)
+
+[node name="03" parent="Screens" index="2" instance=ExtResource("20_dqu7m")]
+position = Vector2(320, -240)
+
+[node name="04" parent="Screens" index="3" instance=ExtResource("21_cjjbf")]
+position = Vector2(320, 0)
+
+[node name="05" parent="Screens" index="4" instance=ExtResource("22_q7kj5")]
+position = Vector2(320, 240)
+
+[node name="06" parent="Screens" index="5" instance=ExtResource("23_2cskt")]
+position = Vector2(640, -240)
+
+[node name="07" parent="Screens" index="6" instance=ExtResource("24_lsfbx")]
+position = Vector2(640, 0)
+
+[node name="08" parent="Screens" index="7" instance=ExtResource("25_373gd")]
+position = Vector2(960, 0)
+
+[node name="09" parent="Screens" index="8" instance=ExtResource("26_jqk2p")]
+position = Vector2(1280, 0)
+
+[node name="Flag" parent="." index="2"]
+position = Vector2(1496, 208)
+
+[node name="Player" parent="PlayerRoot" index="0"]
+position = Vector2(160, 96)

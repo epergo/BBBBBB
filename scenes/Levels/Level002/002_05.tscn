@@ -1,0 +1,274 @@
+[gd_scene load_steps=19 format=3 uid="uid://blqdo4ml44gea"]
+
+[ext_resource type="PackedScene" uid="uid://dt1rv7kupterj" path="res://scenes/base_screen.tscn" id="1_api38"]
+[ext_resource type="PackedScene" uid="uid://do3kkk0gd43gj" path="res://scenes/spikes.tscn" id="2_w5w7b"]
+[ext_resource type="PackedScene" uid="uid://b5vaghkntofef" path="res://scenes/moving_platform.tscn" id="3_kqsmn"]
+[ext_resource type="PackedScene" uid="uid://clic84nayb6kb" path="res://scenes/enemy.tscn" id="4_kwo74"]
+[ext_resource type="PackedScene" uid="uid://lwlmxbnxbdrf" path="res://scenes/diamond.tscn" id="5_nubxy"]
+
+[sub_resource type="Curve2D" id="Curve2D_pk67g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 208, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_a616n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -48)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_iy0d0"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_v826a"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djpox"]
+_data = {
+"Loop": SubResource("Animation_iy0d0"),
+"PinPon": SubResource("Animation_v826a")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_oaly8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_34sar"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_3wk05"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmboj"]
+_data = {
+"Loop": SubResource("Animation_34sar"),
+"PinPon": SubResource("Animation_3wk05")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_fuefq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -48)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_eubea"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_o0p1j"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqf4n"]
+_data = {
+"Loop": SubResource("Animation_eubea"),
+"PinPon": SubResource("Animation_o0p1j")
+}
+
+[node name="05" instance=ExtResource("1_api38")]
+
+[node name="Scenario" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(65516, 131072, 6, 65517, 131072, 6, 65518, 131072, 6, 65519, 262144, 0, 65520, 131072, 7, 65521, 131072, 7, 65522, 131072, 7, 65523, 131072, 7, 65524, 327680, 0, 65525, 131072, 7, 65526, 131072, 7, 65527, 131072, 7, 65528, 131072, 7, 65529, 327680, 0, 65530, 131072, 7, 65531, 131072, 7, 65532, 131072, 7, 65533, 131072, 7, 65534, 131072, 7, 65535, 327680, 0, 131052, 131072, 6, 131053, 131072, 6, 131054, 131072, 6, 131055, 196608, 6, 131060, 0, 6, 131065, 0, 6, 131071, 65536, 6, 196588, 131072, 6, 196589, 131072, 6, 196590, 131072, 6, 196591, 196608, 6, 196596, 0, 65537, 196601, 0, 65537, 196607, 65536, 6, 262124, 131072, 7, 262125, 131072, 7, 262126, 131072, 7, 262127, 196608, 6, 262143, 65536, 6, 327663, 0, 65537, 327668, 0, 0, 327673, 0, 0, 327679, 65536, 6, 393215, 65536, 6, 458751, 65536, 6, 524287, 65536, 6, 589823, 65536, 6, 655359, 65536, 6, 720895, 65536, 6, 786412, 131072, 1, 786413, 131072, 1, 786414, 131072, 1, 786415, 131072, 1, 786416, 196608, 1, 786419, 65536, 1, 786420, 131072, 1, 786421, 196608, 1, 786424, 65536, 1, 786425, 131072, 1, 786426, 196608, 1, 786429, 65536, 1, 786430, 131072, 1, 786431, 327680, 1, 851948, 131072, 6, 851949, 131072, 6, 851950, 131072, 6, 851951, 131072, 6, 851952, 196608, 6, 851955, 65536, 6, 851956, 131072, 6, 851957, 196608, 6, 851960, 65536, 6, 851961, 131072, 6, 851962, 196608, 6, 851965, 65536, 6, 851966, 131072, 6, 851967, 131072, 6, 917484, 131072, 6, 917485, 131072, 6, 917486, 131072, 6, 917487, 131072, 6, 917488, 262144, 1, 917489, 131072, 1, 917490, 131072, 1, 917491, 327680, 1, 917492, 131072, 6, 917493, 262144, 1, 917494, 131072, 1, 917495, 131072, 1, 917496, 327680, 1, 917497, 131072, 6, 917498, 262144, 1, 917499, 131072, 1, 917500, 131072, 1, 917501, 327680, 1, 917502, 131072, 6, 917503, 131072, 6, 983020, 131072, 6, 983021, 131072, 6, 983022, 131072, 6, 983023, 131072, 6, 983024, 131072, 6, 983025, 131072, 6, 983026, 131072, 6, 983027, 131072, 6, 983028, 131072, 6, 983029, 131072, 6, 983030, 131072, 6, 983031, 131072, 6, 983032, 131072, 6, 983033, 131072, 6, 983034, 131072, 6, 983035, 131072, 6, 983036, 131072, 6, 983037, 131072, 6, 983038, 131072, 6, 983039, 131072, 6)
+
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource("2_w5w7b")]
+position = Vector2(56, 80)
+rotation = 3.14159
+
+[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource("2_w5w7b")]
+position = Vector2(136, 80)
+rotation = 3.14159
+
+[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource("2_w5w7b")]
+position = Vector2(216, 80)
+rotation = 3.14159
+
+[node name="Spikes4" parent="Spikes" index="3" instance=ExtResource("2_w5w7b")]
+position = Vector2(104, 16)
+rotation = -3.14159
+
+[node name="Spikes16" parent="Spikes" index="4" instance=ExtResource("2_w5w7b")]
+position = Vector2(88, 16)
+rotation = -3.14159
+
+[node name="Spikes17" parent="Spikes" index="5" instance=ExtResource("2_w5w7b")]
+position = Vector2(72, 16)
+rotation = -3.14159
+
+[node name="Spikes14" parent="Spikes" index="6" instance=ExtResource("2_w5w7b")]
+position = Vector2(120, 16)
+rotation = -3.14159
+
+[node name="Spikes15" parent="Spikes" index="7" instance=ExtResource("2_w5w7b")]
+position = Vector2(120, 16)
+rotation = -3.14159
+
+[node name="Spikes5" parent="Spikes" index="8" instance=ExtResource("2_w5w7b")]
+position = Vector2(200, 16)
+rotation = 3.14159
+
+[node name="Spikes11" parent="Spikes" index="9" instance=ExtResource("2_w5w7b")]
+position = Vector2(184, 16)
+rotation = 3.14159
+
+[node name="Spikes12" parent="Spikes" index="10" instance=ExtResource("2_w5w7b")]
+position = Vector2(168, 16)
+rotation = 3.14159
+
+[node name="Spikes13" parent="Spikes" index="11" instance=ExtResource("2_w5w7b")]
+position = Vector2(152, 16)
+rotation = 3.14159
+
+[node name="Spikes6" parent="Spikes" index="12" instance=ExtResource("2_w5w7b")]
+position = Vector2(296, 16)
+rotation = 3.14159
+
+[node name="Spikes7" parent="Spikes" index="13" instance=ExtResource("2_w5w7b")]
+position = Vector2(280, 16)
+rotation = 3.14159
+
+[node name="Spikes8" parent="Spikes" index="14" instance=ExtResource("2_w5w7b")]
+position = Vector2(264, 16)
+rotation = 3.14159
+
+[node name="Spikes9" parent="Spikes" index="15" instance=ExtResource("2_w5w7b")]
+position = Vector2(248, 16)
+rotation = 3.14159
+
+[node name="Spikes10" parent="Spikes" index="16" instance=ExtResource("2_w5w7b")]
+position = Vector2(232, 16)
+rotation = 3.14159
+
+[node name="MovingPlatform 1" parent="MovingPlatforms" index="0" instance=ExtResource("3_kqsmn")]
+position = Vector2(80, 56)
+
+[node name="Path2D" parent="MovingPlatforms/MovingPlatform 1" index="1"]
+curve = SubResource("Curve2D_pk67g")
+
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("4_kwo74")]
+position = Vector2(96, 192)
+
+[node name="Path2D" parent="Enemies/Enemy" index="0"]
+curve = SubResource("Curve2D_a616n")
+
+[node name="PathFollow2D" parent="Enemies/Enemy/Path2D" index="0"]
+rotation = -1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_djpox")
+}
+
+[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("4_kwo74")]
+position = Vector2(176, 144)
+
+[node name="Path2D" parent="Enemies/Enemy2" index="0"]
+curve = SubResource("Curve2D_oaly8")
+
+[node name="PathFollow2D" parent="Enemies/Enemy2/Path2D" index="0"]
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy2" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_nmboj")
+}
+
+[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("4_kwo74")]
+position = Vector2(256, 192)
+
+[node name="Path2D" parent="Enemies/Enemy3" index="0"]
+curve = SubResource("Curve2D_fuefq")
+
+[node name="PathFollow2D" parent="Enemies/Enemy3/Path2D" index="0"]
+rotation = -1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy3" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_xqf4n")
+}
+
+[node name="Diamond" parent="Diamonds" index="0" instance=ExtResource("5_nubxy")]
+position = Vector2(288, 160)
+
+[editable path="MovingPlatforms/MovingPlatform 1"]
+[editable path="Enemies/Enemy"]
+[editable path="Enemies/Enemy2"]
+[editable path="Enemies/Enemy3"]

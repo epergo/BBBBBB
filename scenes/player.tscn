@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://tedkolygwtj4"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1"]
+[ext_resource type="Shader" path="res://shaders/player_dash_particles.gdshader" id="2_pf8qb"]
+[ext_resource type="Texture2D" uid="uid://vu8ec3h7f7ly" path="res://assets/art/player/character_0002.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://pdgs37qfb5ec" path="res://assets/art/player/character_0003.png" id="4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2w1u"]
+shader = ExtResource("2_pf8qb")
+shader_parameter/baseColor = Color(0.827451, 0.756863, 0.419608, 1)
+
+[sub_resource type="Curve" id="Curve_iipcj"]
+_data = [Vector2(0, 0.863636), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dpig7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j15qb"]
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16xwx"]
+size = Vector2(12, 24)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 24
+floor_block_on_wall = false
+script = ExtResource("1")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_n2w1u")
+position = Vector2(0, -12)
+emitting = false
+amount = 10
+lifetime = 0.1
+texture = ExtResource("3")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_iipcj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_dpig7")
+animation = &"run"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_j15qb")
+
+[node name="CollectablesArea" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectablesArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_16xwx")
+
+[node name="EnemiesArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemiesArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_16xwx")
+
+[node name="HazardArea" type="Area2D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_16xwx")

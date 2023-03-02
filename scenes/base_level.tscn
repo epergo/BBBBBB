@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr4ac7u8awrgg"]
+
+[ext_resource type="Script" path="res://scripts/base_level.gd" id="1_cpfnr"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="2_ynr8w"]
+[ext_resource type="PackedScene" uid="uid://drggo8rnec4t3" path="res://scenes/clouds.tscn" id="3_25qx5"]
+[ext_resource type="PackedScene" uid="uid://g3ow8iagku54" path="res://scenes/flag.tscn" id="4_kubhv"]
+[ext_resource type="PackedScene" uid="uid://tedkolygwtj4" path="res://scenes/player.tscn" id="5_7lqhx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v4w5u"]
+
+[node name="BaseLevel" type="Node"]
+script = ExtResource("1_cpfnr")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+anchor_mode = 0
+editor_draw_limits = true
+script = ExtResource("2_ynr8w")
+backgroundColor = Color(0.87451, 0.964706, 0.960784, 1)
+shakeNoise = SubResource("FastNoiseLite_v4w5u")
+
+[node name="Clouds" parent="Camera2D" instance=ExtResource("3_25qx5")]
+
+[node name="Screens" type="Node2D" parent="."]
+
+[node name="Flag" parent="." instance=ExtResource("4_kubhv")]
+
+[node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerRoot" instance=ExtResource("5_7lqhx")]
+collision_layer = 33

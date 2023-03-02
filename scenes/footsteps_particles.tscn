@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpcp3ioejn4q2"]
+
+[ext_resource type="Texture2D" uid="uid://cspd0uxhofp5o" path="res://assets/art/effects/particles.png" id="1_fjx7d"]
+
+[sub_resource type="Animation" id="Animation_38i56"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uclhd"]
+_data = {
+"default": SubResource("Animation_38i56")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kwdfa"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_3vgng"]
+offsets = PackedFloat32Array(0.60396, 1)
+colors = PackedColorArray(1, 1, 1, 0.784314, 0.92549, 0.92549, 0.92549, 0.117647)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mwbm"]
+gradient = SubResource("Gradient_3vgng")
+
+[sub_resource type="Curve" id="Curve_x84kc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.355556, 1), 0.0, 0.0, 0, 0, Vector2(0.804444, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ukn61"]
+curve = SubResource("Curve_x84kc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xsjgb"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 6.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -3, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = 180.0
+angle_max = 360.0
+scale_max = 1.25
+scale_curve = SubResource("CurveTexture_ukn61")
+color_ramp = SubResource("GradientTexture1D_8mwbm")
+
+[node name="FootstepParticles" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_uclhd")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_kwdfa")
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_xsjgb")
+texture = ExtResource("1_fjx7d")
+lifetime = 0.3
+one_shot = true
+local_coords = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnhnnum1k6crv"]
+
+[ext_resource type="PackedScene" path="res://scenes/base_level.tscn" id="1_fox73"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/Level000/000_01.tscn" id="2_ew8ec"]
+
+[node name="Level000" instance=ExtResource("1_fox73")]
+
+[node name="01" parent="Screens" index="0" instance=ExtResource("2_ew8ec")]
+
+[node name="Flag" parent="." index="2"]
+position = Vector2(272, 224)
+
+[node name="Player" parent="PlayerRoot" index="0"]
+position = Vector2(40, 224)

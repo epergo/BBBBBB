@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt1rv7kupterj"]
+
+[ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_ypbm0"]
+[ext_resource type="TileSet" uid="uid://d132new035nvj" path="res://assets/art/tileset/floor.tres" id="2_mkaeo"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(320, 240)
+
+[node name="BaseScreen" type="Node2D"]
+script = ExtResource("1_ypbm0")
+
+[node name="ScreenArea" type="Area2D" parent="."]
+process_mode = 1
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenArea"]
+position = Vector2(160, 120)
+shape = SubResource("1")
+
+[node name="Scenario" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(320, 0)
+tile_set = ExtResource("2_mkaeo")
+format = 2
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="MovingPlatforms" type="Node2D" parent="."]
+
+[node name="DisappearingPlatforms" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Diamonds" type="Node2D" parent="."]

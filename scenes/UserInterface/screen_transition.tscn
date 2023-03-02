@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://beubd2hibo8ef"]
+
+[ext_resource type="Script" path="res://scripts/screen_transition.gd" id="1_5ifn4"]
+[ext_resource type="Texture2D" uid="uid://dsigrkeakbou4" path="res://assets/art/effects/screen-wipe.png" id="1_x5yhk"]
+
+[sub_resource type="Shader" id="Shader_cvcrr"]
+code = "shader_type canvas_item;
+
+uniform float percent : hint_range(0, 1);
+uniform sampler2D wipeImage;
+
+// WHITE IS 1
+// BLACK IS 0
+
+void fragment() {
+	float textVal = texture(wipeImage, UV).r;
+
+	if (textVal < percent) {
+		COLOR.a = 0.0;
+	} else if (textVal == percent && percent == 1.0) {
+		COLOR.a = 0.0;
+	}
+
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mctwq"]
+shader = SubResource("Shader_cvcrr")
+shader_parameter/percent = 1.0
+shader_parameter/wipeImage = ExtResource("1_x5yhk")
+
+[sub_resource type="Animation" id="Animation_u1x81"]
+resource_name = "default"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"emit_screen_covered"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7xyc5"]
+_data = {
+"default": SubResource("Animation_u1x81")
+}
+
+[node name="ScreenTransition" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_5ifn4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_mctwq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_7xyc5")
+}

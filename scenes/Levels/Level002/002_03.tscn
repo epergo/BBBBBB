@@ -1,0 +1,314 @@
+[gd_scene load_steps=24 format=3 uid="uid://08avubokm122"]
+
+[ext_resource type="PackedScene" uid="uid://dt1rv7kupterj" path="res://scenes/base_screen.tscn" id="1_nyy1b"]
+[ext_resource type="PackedScene" uid="uid://d0kk7xjk0bvpw" path="res://scenes/checkpoint.tscn" id="2_i5er7"]
+[ext_resource type="PackedScene" uid="uid://clic84nayb6kb" path="res://scenes/enemy.tscn" id="3_sc80n"]
+
+[sub_resource type="Curve2D" id="Curve2D_vfkb1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_xx7r1"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_tqoub"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylfw2"]
+_data = {
+"Loop": SubResource("Animation_xx7r1"),
+"PinPon": SubResource("Animation_tqoub")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_oh8d4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_03o3f"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_qi7as"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymjqq"]
+_data = {
+"Loop": SubResource("Animation_03o3f"),
+"PinPon": SubResource("Animation_qi7as")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_yo1rw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 144)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_ut3t5"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_a6g5s"]
+resource_name = "PinPon"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m3p7"]
+_data = {
+"Loop": SubResource("Animation_ut3t5"),
+"PinPon": SubResource("Animation_a6g5s")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_01i3r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -48)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_cr2ms"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_my4dk"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0y5qm"]
+_data = {
+"Loop": SubResource("Animation_cr2ms"),
+"PinPon": SubResource("Animation_my4dk")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_i4byf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_lhort"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_4caov"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8t0wd"]
+_data = {
+"Loop": SubResource("Animation_lhort"),
+"PinPon": SubResource("Animation_4caov")
+}
+
+[node name="03" instance=ExtResource("1_nyy1b")]
+
+[node name="Scenario" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(65516, 131072, 6, 65517, 131072, 6, 65518, 196608, 6, 65522, 65536, 6, 65523, 262144, 0, 65524, 131072, 7, 65525, 131072, 7, 65526, 327680, 0, 65527, 131072, 6, 65528, 131072, 6, 65529, 131072, 6, 65530, 131072, 6, 65531, 262144, 0, 65532, 131072, 7, 65533, 131072, 7, 65534, 327680, 0, 65535, 131072, 6, 131052, 131072, 6, 131053, 131072, 6, 131054, 196608, 6, 131058, 65536, 6, 131059, 196608, 6, 131062, 65536, 6, 131063, 131072, 6, 131064, 131072, 6, 131065, 131072, 6, 131066, 131072, 6, 131067, 196608, 6, 131070, 65536, 6, 131071, 131072, 6, 196588, 131072, 6, 196589, 131072, 6, 196590, 196608, 6, 196594, 65536, 7, 196595, 196608, 7, 196598, 65536, 7, 196599, 131072, 7, 196600, 131072, 7, 196601, 131072, 7, 196602, 131072, 7, 196603, 196608, 7, 196606, 65536, 7, 196607, 327680, 0, 262124, 131072, 6, 262125, 131072, 6, 262126, 196608, 6, 262143, 65536, 6, 327660, 131072, 6, 327661, 131072, 6, 327662, 196608, 6, 327679, 65536, 6, 393196, 131072, 6, 393197, 131072, 6, 393198, 196608, 6, 393215, 65536, 6, 458732, 131072, 6, 458733, 131072, 6, 458734, 262144, 1, 458735, 131072, 1, 458736, 131072, 1, 458737, 131072, 1, 458738, 131072, 1, 458739, 131072, 1, 458740, 131072, 1, 458741, 131072, 1, 458742, 131072, 1, 458743, 196608, 1, 458746, 65536, 1, 458747, 196608, 1, 458751, 65536, 6, 524268, 131072, 6, 524269, 131072, 6, 524270, 131072, 6, 524271, 131072, 6, 524272, 131072, 6, 524273, 131072, 6, 524274, 131072, 6, 524275, 131072, 6, 524276, 131072, 6, 524277, 131072, 6, 524278, 131072, 6, 524279, 262144, 1, 524280, 0, 65542, 524281, 0, 65542, 524282, 327680, 1, 524283, 196608, 6, 524287, 65536, 6, 589804, 131072, 6, 589805, 131072, 6, 589806, 262144, 0, 589807, 131072, 7, 589808, 131072, 7, 589809, 131072, 7, 589810, 131072, 7, 589811, 131072, 7, 589812, 131072, 7, 589813, 131072, 7, 589814, 131072, 7, 589815, 196608, 7, 589818, 65536, 7, 589819, 196608, 7, 589823, 65536, 6, 655340, 131072, 6, 655341, 131072, 6, 655342, 196608, 6, 655359, 65536, 6, 720876, 131072, 6, 720877, 131072, 6, 720878, 196608, 6, 720895, 65536, 6, 786412, 131072, 6, 786413, 131072, 6, 786414, 196608, 6, 786431, 65536, 6, 851948, 131072, 6, 851949, 131072, 6, 851950, 196608, 6, 851954, 65536, 1, 851955, 196608, 1, 851958, 65536, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 851963, 131072, 1, 851964, 131072, 1, 851965, 131072, 1, 851966, 131072, 1, 851967, 327680, 1, 917484, 131072, 6, 917485, 131072, 6, 917486, 196608, 6, 917490, 65536, 6, 917491, 196608, 6, 917494, 65536, 6, 917495, 131072, 6, 917496, 131072, 6, 917497, 131072, 6, 917498, 131072, 6, 917499, 131072, 6, 917500, 131072, 6, 917501, 131072, 6, 917502, 131072, 6, 917503, 131072, 6, 983020, 131072, 6, 983021, 131072, 6, 983022, 196608, 6, 983026, 65536, 6, 983027, 262144, 1, 983028, 131072, 1, 983029, 131072, 1, 983030, 327680, 1, 983031, 131072, 6, 983032, 131072, 6, 983033, 131072, 6, 983034, 131072, 6, 983035, 131072, 6, 983036, 131072, 6, 983037, 131072, 6, 983038, 131072, 6, 983039, 131072, 6)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("2_i5er7")]
+position = Vector2(72, 96)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("2_i5er7")]
+position = Vector2(72, 144)
+rotation = -3.14159
+
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("3_sc80n")]
+position = Vector2(144, 32)
+
+[node name="Path2D" parent="Enemies/Enemy" index="0"]
+curve = SubResource("Curve2D_vfkb1")
+
+[node name="PathFollow2D" parent="Enemies/Enemy/Path2D" index="0"]
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_ylfw2")
+}
+
+[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("3_sc80n")]
+position = Vector2(208, 56)
+
+[node name="Path2D" parent="Enemies/Enemy2" index="0"]
+curve = SubResource("Curve2D_oh8d4")
+
+[node name="PathFollow2D" parent="Enemies/Enemy2/Path2D" index="0"]
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy2" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_ymjqq")
+}
+
+[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("3_sc80n")]
+position = Vector2(272, 32)
+
+[node name="Path2D" parent="Enemies/Enemy3" index="0"]
+curve = SubResource("Curve2D_yo1rw")
+
+[node name="PathFollow2D" parent="Enemies/Enemy3/Path2D" index="0"]
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy3" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_7m3p7")
+}
+
+[node name="Enemy4" parent="Enemies" index="3" instance=ExtResource("3_sc80n")]
+position = Vector2(208, 184)
+
+[node name="Path2D" parent="Enemies/Enemy4" index="0"]
+curve = SubResource("Curve2D_01i3r")
+
+[node name="PathFollow2D" parent="Enemies/Enemy4/Path2D" index="0"]
+rotation = -1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy4" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_0y5qm")
+}
+
+[node name="Enemy5" parent="Enemies" index="4" instance=ExtResource("3_sc80n")]
+position = Vector2(144, 152)
+
+[node name="Path2D" parent="Enemies/Enemy5" index="0"]
+curve = SubResource("Curve2D_i4byf")
+
+[node name="PathFollow2D" parent="Enemies/Enemy5/Path2D" index="0"]
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="Enemies/Enemy5" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_8t0wd")
+}
+
+[editable path="Enemies/Enemy"]
+[editable path="Enemies/Enemy2"]
+[editable path="Enemies/Enemy3"]
+[editable path="Enemies/Enemy4"]
+[editable path="Enemies/Enemy5"]

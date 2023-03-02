@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://clic84nayb6kb"]
+
+[ext_resource type="Texture2D" uid="uid://cy5g7wabx671q" path="res://assets/art/enemies/character_0024.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cme5ytgov65ea" path="res://assets/art/enemies/character_0026.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bf0u0inqhgmxt" path="res://assets/art/enemies/character_0025.png" id="4"]
+
+[sub_resource type="Animation" id="Animation_x5sal"]
+resource_name = "Loop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="Animation_oi7y0"]
+resource_name = "PinPon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1f7w"]
+_data = {
+"Loop": SubResource("Animation_x5sal"),
+"PinPon": SubResource("Animation_oi7y0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3runm"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqwho"]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucp2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../CharacterBody2D")
+update_rotation = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "PinPon"
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_y1f7w")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("CircleShape2D_3runm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_wqwho")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ucp2u")
+autoplay = "default"

@@ -1,0 +1,137 @@
+[gd_scene load_steps=12 format=3 uid="uid://jqyq45rbpo2n"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_cdo3w"]
+[ext_resource type="Theme" uid="uid://cxbrm7d7tjurl" path="res://assets/theme/theme.tres" id="1_r1snf"]
+[ext_resource type="TileSet" uid="uid://d132new035nvj" path="res://assets/art/tileset/floor.tres" id="2_e7is7"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="2_eotms"]
+[ext_resource type="PackedScene" uid="uid://drggo8rnec4t3" path="res://scenes/clouds.tscn" id="3_eu6lx"]
+[ext_resource type="PackedScene" uid="uid://b5vaghkntofef" path="res://scenes/moving_platform.tscn" id="5_ep0r5"]
+[ext_resource type="Texture2D" uid="uid://cid8qrmr0lg2w" path="res://assets/art/spikes/tile_0068.png" id="6_702oc"]
+[ext_resource type="PackedScene" uid="uid://g3ow8iagku54" path="res://scenes/flag.tscn" id="7_rd823"]
+[ext_resource type="PackedScene" uid="uid://d0kk7xjk0bvpw" path="res://scenes/checkpoint.tscn" id="8_yk68n"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aquvr"]
+
+[sub_resource type="Curve2D" id="Curve2D_rcfi5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 104, 0)
+}
+point_count = 2
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_cdo3w")
+
+[node name="MenuBackground" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="MenuBackground" groups=["camera"]]
+anchor_mode = 0
+editor_draw_limits = true
+script = ExtResource("2_eotms")
+backgroundColor = Color(0.87451, 0.964706, 0.960784, 1)
+shakeNoise = SubResource("FastNoiseLite_aquvr")
+
+[node name="Clouds" parent="MenuBackground/Camera2D" instance=ExtResource("3_eu6lx")]
+
+[node name="Background" type="TileMap" parent="MenuBackground"]
+texture_filter = 1
+position = Vector2(320, 0)
+tile_set = ExtResource("2_e7is7")
+format = 2
+layer_0/tile_data = PackedInt32Array(917484, 65536, 1, 786431, 196608, 1, 786428, 65536, 1, 851968, 196608, 1, 917503, 131072, 1, 917502, 131072, 1, 917501, 131072, 1, 917500, 131072, 1, 917499, 131072, 1, 917498, 131072, 1, 917497, 131072, 1, 917496, 131072, 1, 917495, 131072, 1, 917494, 131072, 1, 917493, 131072, 1, 917492, 131072, 1, 917491, 131072, 1, 917490, 131072, 1, 917489, 131072, 1, 917488, 131072, 1, 917487, 131072, 1, 917486, 131072, 1, 917485, 131072, 1, 786429, 131072, 1, 786430, 131072, 1, 851964, 65536, 6, 851967, 196608, 6, 851965, 131072, 6, 851966, 131072, 6, 983021, 131072, 6, 983022, 131072, 6, 983023, 131072, 6, 983024, 131072, 6, 983025, 131072, 6, 983026, 131072, 6, 983027, 131072, 6, 983028, 131072, 6, 983029, 131072, 6, 983030, 131072, 6, 983031, 131072, 6, 983032, 131072, 6, 983033, 131072, 6, 983034, 131072, 6, 983035, 131072, 6, 983036, 131072, 6, 983037, 131072, 6, 983038, 131072, 6, 983039, 131072, 6, 917504, 196608, 6, 983020, 65536, 6, 131053, 131072, 7, 131054, 131072, 7, 131055, 131072, 7, 131056, 131072, 7, 131057, 131072, 7, 131058, 131072, 7, 131059, 131072, 7, 131060, 131072, 7, 131061, 196608, 7, 65526, 131072, 7, 65527, 131072, 7, 65528, 131072, 7, 65529, 131072, 7, 65530, 131072, 7, 65531, 131072, 7, 65532, 131072, 7, 65533, 327680, 0, 65525, 262144, 0, 131052, 65536, 7, 65516, 65536, 6, 65517, 131072, 6, 65518, 131072, 6, 65519, 131072, 6, 65520, 131072, 6, 65521, 131072, 6, 65522, 131072, 6, 65523, 131072, 6, 65524, 131072, 6, 131069, 65536, 7, 65535, 196608, 6, 131071, 196608, 7, 65534, 131072, 6, 131070, 131072, 7, 851952, 327680, 4)
+
+[node name="MovingPlatform" parent="MenuBackground" instance=ExtResource("5_ep0r5")]
+position = Vector2(64, 120)
+_paused = false
+
+[node name="Path2D" parent="MenuBackground/MovingPlatform" index="1"]
+curve = SubResource("Curve2D_rcfi5")
+
+[node name="Spikes" type="Node2D" parent="MenuBackground"]
+
+[node name="Spike 1" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(168, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Spike 2" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(184, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Spike 3" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(200, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Spike 4" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(216, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Spike 5" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(232, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Spike 6" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(248, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Spike 7" type="Sprite2D" parent="MenuBackground/Spikes"]
+texture_filter = 1
+position = Vector2(264, 24)
+rotation = -3.14159
+texture = ExtResource("6_702oc")
+
+[node name="Flag" parent="MenuBackground" instance=ExtResource("7_rd823")]
+position = Vector2(288, 176)
+
+[node name="Checkpoint" parent="MenuBackground" instance=ExtResource("8_yk68n")]
+position = Vector2(56, 32)
+rotation = 3.14159
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r1snf")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[editable path="MenuBackground/MovingPlatform"]

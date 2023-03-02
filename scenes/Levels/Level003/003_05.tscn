@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dt1rv7kupterj" path="res://scenes/base_screen.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://do3kkk0gd43gj" path="res://scenes/spikes.tscn" id="2"]
+
+[node name="21" instance=ExtResource("1")]
+
+[node name="Scenario" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(65516, 131072, 6, 65517, 131072, 6, 65518, 131072, 6, 65519, 131072, 6, 65520, 131072, 6, 65521, 131072, 6, 65522, 196608, 6, 65529, 65536, 6, 65530, 131072, 6, 65531, 131072, 6, 65532, 131072, 6, 65533, 131072, 6, 65534, 131072, 6, 65535, 131072, 6, 131052, 131072, 7, 131053, 131072, 7, 131054, 131072, 7, 131055, 131072, 7, 131056, 131072, 7, 131057, 327680, 0, 131058, 196608, 6, 131065, 65536, 6, 131066, 262144, 0, 131067, 131072, 7, 131068, 131072, 7, 131069, 131072, 7, 131070, 131072, 7, 131071, 131072, 7, 196593, 65536, 6, 196594, 196608, 6, 196601, 65536, 6, 196602, 196608, 6, 262129, 65536, 6, 262130, 196608, 6, 262137, 65536, 6, 262138, 196608, 6, 327665, 65536, 6, 327666, 131072, 6, 327667, 196608, 0, 327672, 65536, 0, 327673, 131072, 6, 327674, 196608, 6, 393201, 65536, 6, 393202, 196608, 6, 393209, 65536, 6, 393210, 196608, 6, 458737, 65536, 6, 458738, 196608, 6, 458740, 0, 0, 458743, 0, 0, 458745, 65536, 6, 458746, 196608, 6, 524273, 65536, 6, 524274, 196608, 6, 524281, 65536, 6, 524282, 196608, 6, 589809, 65536, 6, 589810, 196608, 6, 589817, 65536, 6, 589818, 196608, 6, 655345, 65536, 6, 655346, 196608, 6, 655353, 65536, 6, 655354, 196608, 6, 720881, 65536, 7, 720882, 327680, 0, 720883, 131072, 1, 720884, 131072, 1, 720885, 131072, 1, 720886, 131072, 1, 720887, 131072, 1, 720888, 131072, 1, 720889, 262144, 0, 720890, 196608, 7, 786418, 65536, 7, 786419, 131072, 7, 786420, 131072, 7, 786421, 131072, 7, 786422, 131072, 7, 786423, 131072, 7, 786424, 131072, 7, 786425, 196608, 7)
+
+[node name="Spikes1" parent="Spikes" index="0" instance=ExtResource("2")]
+position = Vector2(120, 80)
+rotation = -3.14159
+
+[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource("2")]
+position = Vector2(120, 64)
+
+[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource("2")]
+position = Vector2(200, 64)
+
+[node name="Spikes11" parent="Spikes" index="3" instance=ExtResource("2")]
+position = Vector2(200, 80)
+rotation = 3.14159
+
+[node name="Spikes13" parent="Spikes" index="4" instance=ExtResource("2")]
+position = Vector2(184, 112)
+rotation = 3.14159
+
+[node name="Spikes15" parent="Spikes" index="5" instance=ExtResource("2")]
+position = Vector2(136, 112)
+rotation = -3.14159
+
+[node name="Spikes12" parent="Spikes" index="6" instance=ExtResource("2")]
+position = Vector2(184, 96)
+
+[node name="Spikes14" parent="Spikes" index="7" instance=ExtResource("2")]
+position = Vector2(136, 96)

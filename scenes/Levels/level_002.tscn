@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://do1q0pruyuw6c"]
+
+[ext_resource type="PackedScene" uid="uid://cr4ac7u8awrgg" path="res://scenes/base_level.tscn" id="1_ivmhq"]
+[ext_resource type="PackedScene" uid="uid://dk2ggfg0i017n" path="res://scenes/Levels/Level002/002_01.tscn" id="11_hbgs6"]
+[ext_resource type="PackedScene" uid="uid://cxf4rdutfisrp" path="res://scenes/Levels/Level002/002_02.tscn" id="12_7a56j"]
+[ext_resource type="PackedScene" uid="uid://08avubokm122" path="res://scenes/Levels/Level002/002_03.tscn" id="13_57517"]
+[ext_resource type="PackedScene" uid="uid://dgb65blei6ef3" path="res://scenes/Levels/Level002/002_04.tscn" id="14_unwsf"]
+[ext_resource type="PackedScene" uid="uid://blqdo4ml44gea" path="res://scenes/Levels/Level002/002_05.tscn" id="15_84h4r"]
+[ext_resource type="PackedScene" uid="uid://ccytc0b0a6ha7" path="res://scenes/Levels/Level002/002_06.tscn" id="16_fn77i"]
+[ext_resource type="PackedScene" uid="uid://coorakoqgthfw" path="res://scenes/Levels/Level002/002_07.tscn" id="17_nnymd"]
+[ext_resource type="PackedScene" uid="uid://k7w5uxqrpawp" path="res://scenes/Levels/Level002/002_08.tscn" id="18_g1e5e"]
+
+[node name="Level002" instance=ExtResource("1_ivmhq")]
+
+[node name="Camera2D" parent="." index="0"]
+position = Vector2(320, 0)
+
+[node name="01" parent="Screens" index="0" instance=ExtResource("11_hbgs6")]
+
+[node name="02" parent="Screens" index="1" instance=ExtResource("12_7a56j")]
+position = Vector2(320, 0)
+
+[node name="03" parent="Screens" index="2" instance=ExtResource("13_57517")]
+position = Vector2(0, 240)
+
+[node name="04" parent="Screens" index="3" instance=ExtResource("14_unwsf")]
+position = Vector2(0, 480)
+
+[node name="05" parent="Screens" index="4" instance=ExtResource("15_84h4r")]
+position = Vector2(320, 480)
+
+[node name="06" parent="Screens" index="5" instance=ExtResource("16_fn77i")]
+position = Vector2(0, 720)
+
+[node name="07" parent="Screens" index="6" instance=ExtResource("17_nnymd")]
+position = Vector2(320, 720)
+
+[node name="08" parent="Screens" index="7" instance=ExtResource("18_g1e5e")]
+position = Vector2(640, 720)
+
+[node name="Flag" parent="." index="2"]
+position = Vector2(800, 816)
+
+[node name="Player" parent="PlayerRoot" index="0"]
+position = Vector2(496, 112)

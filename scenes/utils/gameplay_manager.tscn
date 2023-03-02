@@ -1,0 +1,13 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0c53a66h5dsf"]
+
+[ext_resource type="Script" path="res://scripts/gameplay_manager.gd" id="1_c3l36"]
+[ext_resource type="PackedScene" uid="uid://3nt8u74ggtp7" path="res://scenes/Levels/level_001.tscn" id="2_ew6c3"]
+[ext_resource type="PackedScene" uid="uid://do1q0pruyuw6c" path="res://scenes/Levels/level_002.tscn" id="3_dsqny"]
+[ext_resource type="PackedScene" uid="uid://baegte1w4ij8h" path="res://scenes/Levels/level_003.tscn" id="4_hhr8x"]
+[ext_resource type="PackedScene" uid="uid://c0h5e4nxg4d48" path="res://scenes/UserInterface/hud.tscn" id="5_env03"]
+
+[node name="GameplayManager" type="Node"]
+script = ExtResource("1_c3l36")
+levelScenes = Array[PackedScene]([ExtResource("2_ew6c3"), ExtResource("3_dsqny"), ExtResource("4_hhr8x")])
+
+[node name="HUD" parent="." instance=ExtResource("5_env03")]

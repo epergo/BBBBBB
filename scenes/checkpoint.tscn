@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0kk7xjk0bvpw"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dxr4dlss642n0" path="res://assets/art/checkpoint/tile_0065.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dylq4vodawu0u" path="res://assets/art/checkpoint/tile_0066.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bkyyae6bqbmc3" path="res://assets/art/checkpoint/tile_0064.png" id="5"]
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(16, 12)
+
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"checked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": false,
+"name": &"turn_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": false,
+"name": &"turn_on",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"unchecked",
+"speed": 5.0
+}]
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -9)
+sprite_frames = SubResource("4")
+animation = &"unchecked"

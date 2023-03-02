@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5vaghkntofef"]
+
+[ext_resource type="Texture2D" uid="uid://dx34e4x0cftj" path="res://assets/art/Platform4.png" id="1"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 8)
+
+[sub_resource type="Animation" id="11"]
+resource_name = "Loop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="Animation" id="12"]
+resource_name = "PinPon"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_phs38"]
+_data = {
+"Loop": SubResource("11"),
+"PinPon": SubResource("12")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("3")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1")
+vframes = 4
+
+[node name="Path2D" type="Path2D" parent="."]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../AnimatableBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "PinPon"
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_phs38")
+}

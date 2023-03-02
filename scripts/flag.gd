@@ -1,0 +1,15 @@
+class_name Flag
+extends Node2D
+
+signal player_won
+
+@onready var area: Area2D = $Area2D
+
+
+func _ready() -> void:
+	area.connect("area_entered", Callable(self, "_on_handle_area_entered"))
+
+
+func _on_handle_area_entered(_area2d) -> void:
+	area.disconnect("area_entered", Callable(self, "_on_handle_area_entered"))
+	emit_signal("player_won")

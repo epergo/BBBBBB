@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dt1rv7kupterj" path="res://scenes/base_screen.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://d0kk7xjk0bvpw" path="res://scenes/checkpoint.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://do3kkk0gd43gj" path="res://scenes/spikes.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b5vaghkntofef" path="res://scenes/moving_platform.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://ch2pmhhogecrl" path="res://scenes/disappearing_platform.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://lwlmxbnxbdrf" path="res://scenes/diamond.tscn" id="8"]
+
+[sub_resource type="Curve2D" id="Curve2D_q2xeb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192, 0)
+}
+point_count = 2
+
+[node name="01" instance=ExtResource("1")]
+
+[node name="Scenario" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(65516, 262144, 0, 65517, 131072, 7, 65518, 131072, 7, 65519, 131072, 7, 65520, 131072, 7, 65521, 131072, 7, 65522, 131072, 7, 65523, 131072, 7, 65524, 131072, 7, 65525, 131072, 7, 65526, 131072, 7, 65527, 131072, 7, 65528, 131072, 7, 65529, 131072, 7, 65530, 131072, 7, 65531, 131072, 7, 65532, 131072, 7, 65533, 131072, 7, 65534, 131072, 7, 65535, 327680, 0, 131052, 196608, 6, 131071, 65536, 6, 196588, 196608, 6, 196607, 65536, 6, 262124, 196608, 6, 262143, 65536, 6, 327660, 196608, 6, 327679, 65536, 6, 393196, 196608, 6, 393215, 65536, 6, 458732, 196608, 6, 458751, 65536, 6, 524268, 196608, 6, 524287, 65536, 6, 589804, 196608, 6, 589823, 65536, 6, 655340, 196608, 6, 655359, 65536, 6, 720876, 196608, 6, 720895, 65536, 6, 786412, 196608, 6, 786431, 65536, 6, 851948, 196608, 6, 851967, 65536, 6, 917484, 196608, 6, 917503, 65536, 6, 983020, 262144, 1, 983021, 131072, 1, 983022, 131072, 1, 983023, 131072, 1, 983024, 131072, 1, 983025, 131072, 1, 983026, 131072, 1, 983027, 131072, 1, 983028, 131072, 1, 983029, 131072, 1, 983030, 131072, 1, 983031, 131072, 1, 983032, 131072, 1, 983033, 131072, 1, 983034, 131072, 1, 983035, 131072, 1, 983036, 131072, 1, 983037, 131072, 1, 983038, 131072, 1, 983039, 327680, 1)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("4")]
+position = Vector2(72, 224)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("4")]
+position = Vector2(280, 16)
+rotation = 3.14159
+
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource("5")]
+position = Vector2(136, 224)
+
+[node name="Spikes7" parent="Spikes" index="1" instance=ExtResource("5")]
+position = Vector2(154, 224)
+
+[node name="Spikes8" parent="Spikes" index="2" instance=ExtResource("5")]
+position = Vector2(172, 224)
+
+[node name="Spikes9" parent="Spikes" index="3" instance=ExtResource("5")]
+position = Vector2(190, 224)
+
+[node name="Spikes10" parent="Spikes" index="4" instance=ExtResource("5")]
+position = Vector2(208, 224)
+
+[node name="Spikes2" parent="Spikes" index="5" instance=ExtResource("5")]
+position = Vector2(192, 16)
+rotation = 3.14159
+
+[node name="Spikes3" parent="Spikes" index="6" instance=ExtResource("5")]
+position = Vector2(174, 16)
+rotation = 3.14159
+
+[node name="Spikes4" parent="Spikes" index="7" instance=ExtResource("5")]
+position = Vector2(156, 16)
+rotation = 3.14159
+
+[node name="Spikes5" parent="Spikes" index="8" instance=ExtResource("5")]
+position = Vector2(138, 16)
+rotation = 3.14159
+
+[node name="Spikes6" parent="Spikes" index="9" instance=ExtResource("5")]
+position = Vector2(120, 16)
+rotation = 3.14159
+
+[node name="MovingPlatform" parent="MovingPlatforms" index="0" instance=ExtResource("6")]
+position = Vector2(48, 128)
+
+[node name="Path2D" parent="MovingPlatforms/MovingPlatform" index="1"]
+curve = SubResource("Curve2D_q2xeb")
+
+[node name="Platform" parent="DisappearingPlatforms" index="0" instance=ExtResource("7")]
+position = Vector2(272, 128)
+
+[node name="Platform4" parent="DisappearingPlatforms" index="1" instance=ExtResource("7")]
+position = Vector2(80, 72)
+
+[node name="Platform5" parent="DisappearingPlatforms" index="2" instance=ExtResource("7")]
+position = Vector2(112, 72)
+
+[node name="Platform6" parent="DisappearingPlatforms" index="3" instance=ExtResource("7")]
+position = Vector2(144, 72)
+
+[node name="Platform7" parent="DisappearingPlatforms" index="4" instance=ExtResource("7")]
+position = Vector2(176, 72)
+
+[node name="Platform8" parent="DisappearingPlatforms" index="5" instance=ExtResource("7")]
+position = Vector2(208, 72)
+
+[node name="Platform9" parent="DisappearingPlatforms" index="6" instance=ExtResource("7")]
+position = Vector2(240, 72)
+
+[node name="Platform2" parent="DisappearingPlatforms" index="7" instance=ExtResource("7")]
+position = Vector2(48, 72)
+
+[node name="Diamond 1" parent="Diamonds" index="0" instance=ExtResource("8")]
+position = Vector2(272, 112)
+
+[node name="Diamond 2" parent="Diamonds" index="1" instance=ExtResource("8")]
+position = Vector2(48, 32)
+
+[node name="Diamond 3" parent="Diamonds" index="2" instance=ExtResource("8")]
+position = Vector2(208, 88)
+
+[editable path="MovingPlatforms/MovingPlatform"]

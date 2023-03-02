@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://g3ow8iagku54"]
+
+[ext_resource type="Texture2D" uid="uid://bswp1vhx4qsdp" path="res://assets/art/flag/tile_0131.png" id="1_ouvv7"]
+[ext_resource type="Script" path="res://scripts/flag.gd" id="1_rhy15"]
+[ext_resource type="Texture2D" uid="uid://dto5tgqygcls" path="res://assets/art/flag/tile_0111.png" id="2_aan2k"]
+[ext_resource type="Texture2D" uid="uid://dwi2kgqcw8ui5" path="res://assets/art/flag/tile_0112.png" id="3_ka5j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nat23"]
+size = Vector2(11, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xeld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aan2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ka5j2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("1_rhy15")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, -17.5)
+shape = SubResource("RectangleShape2D_nat23")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(9, -9)
+texture = ExtResource("1_ouvv7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(9, -27)
+sprite_frames = SubResource("SpriteFrames_3xeld")
+autoplay = "default"

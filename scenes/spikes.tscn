@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://do3kkk0gd43gj"]
+
+[ext_resource type="Texture2D" uid="uid://cid8qrmr0lg2w" path="res://assets/art/spikes/tile_0068.png" id="1"]
+
+[node name="Spikes" type="Node2D"]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-8, 0, -8, -4, -5, -9, -3, -9, 0, -6, 3, -9, 5, -9, 8, -4, 8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -9)
+texture = ExtResource("1")

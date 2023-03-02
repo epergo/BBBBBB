@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0h5e4nxg4d48"]
+
+[ext_resource type="Texture2D" uid="uid://c7wbd2pfwcdp1" path="res://assets/art/diamond/tile_0067.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://vu8ec3h7f7ly" path="res://assets/art/player/character_0002.png" id="4"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="5"]
+[ext_resource type="Theme" uid="uid://cxbrm7d7tjurl" path="res://assets/theme/theme.tres" id="6"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="DiamondsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Diamond" type="TextureRect" parent="MarginContainer/HBoxContainer/DiamondsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="DiamondLabel" type="Label" parent="MarginContainer/HBoxContainer/DiamondsContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "99"
+
+[node name="LifesContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Player" type="TextureRect" parent="MarginContainer/HBoxContainer/LifesContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("4")
+expand_mode = 1
+flip_h = true
+
+[node name="LifesLabel" type="Label" parent="MarginContainer/HBoxContainer/LifesContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "99"
