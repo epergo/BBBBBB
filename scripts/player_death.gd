@@ -1,5 +1,4 @@
-class_name PlayerDeath
-extends CharacterBody2D
+class_name PlayerDeath extends CharacterBody2D
 
 var flip_h := false
 var flip_v := false

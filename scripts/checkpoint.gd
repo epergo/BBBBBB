@@ -1,5 +1,4 @@
-extends Node2D
-class_name Checkpoint
+class_name Checkpoint extends Node2D
 
 signal checkpoint_activated
 
@@ -15,7 +14,7 @@ func _ready() -> void:
 	else:
 		animatedSprite.play("unchecked")
 
-	area.connect("body_entered", Callable(self, "_on_player_entered"))
+	area.body_entered.connect(_on_player_entered)
 
 
 func _on_player_entered(body: Node2D) -> void:

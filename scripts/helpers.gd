@@ -1,5 +1,4 @@
-class_name Helpers
-extends Node
+class_name Helpers extends Node
 
 
 func apply_camera_shake(percentage: float) -> void:

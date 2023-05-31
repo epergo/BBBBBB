@@ -1,5 +1,4 @@
-class_name MovingPlatform
-extends Node2D
+class_name MovingPlatform extends Node2D
 
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
@@ -7,7 +6,7 @@ extends Node2D
 @export var _paused := true
 
 
-func _ready():
+func _ready() -> void:
 	animationPlayer.seek(start_animation_at)
 
 

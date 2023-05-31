@@ -1,5 +1,4 @@
-class_name Flag
-extends Node2D
+class_name Flag extends Node2D
 
 signal player_won
 
@@ -7,7 +6,7 @@ signal player_won
 
 
 func _ready() -> void:
-	area.connect("area_entered", Callable(self, "_on_handle_area_entered"))
+	area.area_entered.connect(_on_handle_area_entered)
 
 
 func _on_handle_area_entered(_area2d) -> void:

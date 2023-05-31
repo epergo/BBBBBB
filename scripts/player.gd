@@ -1,5 +1,4 @@
-class_name Player
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 const SPRITE_SIZE := 24
 
@@ -30,15 +29,15 @@ var isNewState := true
 
 
 func _ready() -> void:
-	hazardArea.connect("area_entered", Callable(self, "_on_hazard_area_entered"))
-	enemiesArea.connect("area_entered", Callable(self, "_on_hazard_area_entered"))
-	collectablesArea.connect("area_entered", Callable(self, "_on_collectables_area_entered"))
+	hazardArea.area_entered.connect(_on_hazard_area_entered)
+	enemiesArea.area_entered.connect(_on_hazard_area_entered)
+	collectablesArea.area_entered.connect(_on_collectables_area_entered)
 
 
 func _physics_process(_delta) -> void:
 	if (
 		(is_on_floor() || !coyoteTimer.is_stopped())
-		and Input.is_action_just_pressed("change_gravity")
+		&& Input.is_action_just_pressed("change_gravity")
 	):
 		going_down = !going_down
 
@@ -142,7 +141,6 @@ func respawn() -> void:
 	playerDeathInstance.global_position = global_position
 	playerDeathInstance.set_visual_direction(animatedSprite.flip_h, animatedSprite.flip_v)
 
-	# Godot4 `add_child_below_node` was replaced with `add_sibling`
 	add_sibling(playerDeathInstance)
 
 

@@ -1,5 +1,4 @@
-class_name GameplayManager
-extends Node
+class_name GameplayManager extends Node
 
 @export var levelScenes: Array[PackedScene]
 
@@ -26,9 +25,9 @@ func change_level(levelIndex: int, show_transition: bool = true) -> void:
 		currentLevelIndex = 0
 
 	var nextLevel: BaseLevel = levelScenes[currentLevelIndex].instantiate()
-	nextLevel.connect("player_died", Callable(self, "_on_player_died"))
-	nextLevel.connect("diamond_collected", Callable(self, "_on_diamond_collected"))
-	nextLevel.connect("player_won", Callable(self, "_on_player_won"))
+	nextLevel.player_died.connect(_on_player_died)
+	nextLevel.diamond_collected.connect(_on_diamond_collected)
+	nextLevel.player_won.connect(_on_player_won)
 
 	if currentLevel != null:
 		currentLevel.queue_free()

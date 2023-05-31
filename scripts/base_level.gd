@@ -1,5 +1,4 @@
-class_name BaseLevel
-extends Node
+class_name BaseLevel extends Node
 
 @onready var _screensNode: Node2D = $Screens
 @onready var _camera: PlayerCamera = $Camera2D
@@ -21,16 +20,14 @@ var playerScene: PackedScene = preload("res://scenes/player.tscn")
 
 func _ready():
 	for screen in get_screens():
-		screen.connect("change_screen", Callable(self, "_on_change_screen"))
-		screen.connect(
-			"screen_checkpoint_activated", Callable(self, "_on_handle_screen_checkpoint_activated")
-		)
+		screen.change_screen.connect(_on_change_screen)
+		screen.screen_checkpoint_activated.connect(_on_handle_screen_checkpoint_activated)
 
 	var screens: Array[BaseScreen] = get_screens()
 	if screens.size() > 0:
 		level_checkpoint = screens[0]
 
-	_flag.connect("player_won", Callable(self, "_on_player_won"))
+	_flag.player_won.connect(_on_player_won)
 
 	register_player(_player)
 
@@ -40,11 +37,9 @@ func _ready():
 
 func register_player(player) -> void:
 	_player = player
-	_player.connect("died", Callable(self, "_on_player_died").bind(), CONNECT_DEFERRED)
-	_player.connect(
-		"diamond_collected", Callable(self, "_on_diamond_collected").bind(), CONNECT_DEFERRED
-	)
-	_player.connect("DEBUG_go_to_prev_checkpoint", Callable(self, "_go_to_prev_checkpoint"))
+	_player.died.connect(_on_player_died, CONNECT_DEFERRED)
+	_player.diamond_collected.connect(_on_diamond_collected, CONNECT_DEFERRED)
+	_player.DEBUG_go_to_prev_checkpoint.connect(_go_to_prev_checkpoint)
 
 
 func create_player() -> void:
@@ -58,7 +53,6 @@ func create_player() -> void:
 func _go_to_prev_checkpoint() -> void:
 	_player.queue_free()
 
-	# Godot 4 `yield` has been removed in favor of `await`
 	await get_tree().create_timer(1.0).timeout
 
 	create_player()

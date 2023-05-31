@@ -37,6 +37,10 @@ window/size/window_width_override=640
 window/size/window_height_override=480
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="BBBBBB"
+
 [importer_defaults]
 
 texture={

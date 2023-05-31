@@ -1,5 +1,4 @@
-class_name Diamond
-extends Node2D
+class_name Diamond extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var area: Area2D = $AnimatedSprite2D/Area2D
@@ -7,7 +6,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	area.connect("area_entered", Callable(self, "_on_area_entered"))
+	area.area_entered.connect(_on_area_entered)
 
 
 func _on_area_entered(_area2d) -> void:

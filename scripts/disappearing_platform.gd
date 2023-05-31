@@ -1,5 +1,4 @@
-extends CharacterBody2D
-class_name DisappearingPlatform
+class_name DisappearingPlatform extends CharacterBody2D
 
 @export var animatedSprite_nodepath: NodePath
 @export var collisions_nodepath: NodePath

@@ -1,5 +1,4 @@
-class_name BaseScreen
-extends Node2D
+class_name BaseScreen extends Node2D
 
 signal screen_checkpoint_activated
 signal level_spike_damage
@@ -9,13 +8,15 @@ signal change_screen
 
 var active_checkpoint: Checkpoint
 
+@onready var _screen_area: Area2D = $ScreenArea
+
 
 func _ready() -> void:
 	for checkpoint in checkpoints():
-		checkpoint.connect("checkpoint_activated", Callable(self, "_on_checkpoint_activated"))
+		checkpoint.checkpoint_activated.connect(_on_checkpoint_activated)
 
-	$ScreenArea.connect("body_entered", Callable(self, "_on_body_entered"))
-	$ScreenArea.connect("body_exited", Callable(self, "_on_body_exited"))
+	_screen_area.body_entered.connect(_on_body_entered)
+	_screen_area.body_exited.connect(_on_body_exited)
 
 
 func reset_moving_platforms() -> void:

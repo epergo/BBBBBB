@@ -1,6 +1,4 @@
-class_name PlayerCamera
-
-extends Camera2D
+class_name PlayerCamera extends Camera2D
 
 var targetPosition := Vector2.ZERO
 

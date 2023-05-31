@@ -1,5 +1,4 @@
-extends CanvasLayer
-class_name HUD
+class_name HUD extends CanvasLayer
 
 @onready
 var _diamondsCollected: Label = $MarginContainer/HBoxContainer/DiamondsContainer/DiamondLabel

@@ -1,5 +1,4 @@
-class_name ScreenTransition
-extends CanvasLayer
+class_name ScreenTransition extends CanvasLayer
 
 signal screen_covered
 
