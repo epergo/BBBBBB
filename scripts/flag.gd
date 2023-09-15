@@ -11,4 +11,4 @@ func _ready() -> void:
 
 func _on_handle_area_entered(_area2d) -> void:
 	area.disconnect("area_entered", Callable(self, "_on_handle_area_entered"))
-	emit_signal("player_won")
+	player_won.emit()

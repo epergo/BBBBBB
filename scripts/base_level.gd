@@ -82,7 +82,7 @@ func _on_change_screen(level: BaseScreen) -> void:
 
 func _on_player_died() -> void:
 	_go_to_prev_checkpoint()
-	emit_signal("player_died")
+	player_died.emit()
 
 
 func _on_handle_screen_checkpoint_activated(level: BaseScreen) -> void:
@@ -101,11 +101,11 @@ func _on_handle_screen_checkpoint_activated(level: BaseScreen) -> void:
 
 
 func _on_diamond_collected() -> void:
-	emit_signal("diamond_collected")
+	diamond_collected.emit()
 
 
 func _on_player_won() -> void:
-	emit_signal("player_won")
+	player_won.emit()
 
 
 func _unhandled_input(event: InputEvent) -> void:

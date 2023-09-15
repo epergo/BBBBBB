@@ -67,7 +67,7 @@ func _physics_process(_delta) -> void:
 				collider.disappear()
 
 	if Input.is_action_just_pressed("DEBUG_go_to_prev_checkpoint"):
-		emit_signal("DEBUG_go_to_prev_checkpoint")
+		DEBUG_go_to_prev_checkpoint.emit()
 
 	update_animation()
 
@@ -127,7 +127,7 @@ func die() -> void:
 		return
 
 	isDead = true
-	emit_signal("died")
+	died.emit()
 	die_effect()
 	respawn()
 
@@ -159,4 +159,4 @@ func _on_hazard_area_entered(_body) -> void:
 
 
 func _on_collectables_area_entered(_diamond) -> void:
-	emit_signal("diamond_collected")
+	diamond_collected.emit()

@@ -10,4 +10,4 @@ func _ready() -> void:
 
 
 func _on_next_button_pressed() -> void:
-	emit_signal("next_level_pressed")
+	next_level_pressed.emit()

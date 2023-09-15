@@ -55,7 +55,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body is Player:
 		return
 
-	emit_signal("change_screen", self)
+	change_screen.emit(self)
 	resume_moving_platforms()
 	restart_disappearing_platorms()
 
@@ -91,7 +91,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_checkpoint_activated(checkpoint: Checkpoint) -> void:
 	active_checkpoint = checkpoint
-	emit_signal("screen_checkpoint_activated", self)
+	screen_checkpoint_activated.emit(self)
 
 
 func active_checkpoint_position() -> Vector2:
@@ -109,4 +109,4 @@ func active_checkpoint_orientation() -> bool:
 
 
 func _on_diamond_collected() -> void:
-	emit_signal("level_diamond_collected")
+	level_diamond_collected.emit()

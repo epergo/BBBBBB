@@ -28,7 +28,7 @@ func _on_player_entered(body: Node2D) -> void:
 
 	active = true
 	animatedSprite.play("turn_on")
-	emit_signal("checkpoint_activated", self)
+	checkpoint_activated.emit(self)
 
 
 func disable() -> void:

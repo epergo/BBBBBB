@@ -4,4 +4,4 @@ signal screen_covered
 
 
 func emit_screen_covered() -> void:
-	emit_signal("screen_covered")
+	screen_covered.emit()
