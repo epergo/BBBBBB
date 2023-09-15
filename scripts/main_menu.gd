@@ -1,11 +1,8 @@
 class_name MainMenu extends CanvasLayer
 
-@onready
-var _playButton: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PlayButton
-@onready
-var _optionsButton: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton
-@onready
-var _exitButton: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ExitButton
+@onready var _playButton: Button = %PlayButton
+@onready var _optionsButton: Button = %OptionsButton
+@onready var _exitButton: Button = %ExitButton
 
 @onready
 var _scene_transition_manager: SceneTransitionManager = $"/root/SceneTransitionManagerSingleton"
