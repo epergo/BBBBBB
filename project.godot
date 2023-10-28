@@ -12,7 +12,7 @@ config_version=5
 
 config/name="BBBBBB"
 run/main_scene="res://scenes/UserInterface/main_menu.tscn"
-config/features=PackedStringArray("4.1")
+config/features=PackedStringArray("4.2")
 config/icon="res://assets/art/player/character_0002.png"
 target_fps="60"
 
@@ -123,4 +123,5 @@ pause={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 2d/snapping/use_gpu_pixel_snap=true
