@@ -11,7 +11,7 @@ void fragment() {
 
 	if (textVal < percent) {
 		COLOR.a = 0.0;
-	} else if (textVal == percent && percent == 1.0) {
+	} else if (abs(textVal - percent) < 0.0001 && percent >= 1.0) {
 		COLOR.a = 0.0;
 	}
 }
