@@ -46,6 +46,9 @@ _paused = false
 [node name="Path2D" parent="MenuBackground/MovingPlatform" index="1"]
 curve = SubResource("Curve2D_rcfi5")
 
+[node name="AnimationPlayer" parent="MenuBackground/MovingPlatform" index="2"]
+callback_mode_process = 0
+
 [node name="Spikes" type="Node2D" parent="MenuBackground"]
 
 [node name="Spike 1" type="Sprite2D" parent="MenuBackground/Spikes"]

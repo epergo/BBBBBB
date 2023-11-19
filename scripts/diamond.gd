@@ -9,6 +9,6 @@ func _ready() -> void:
 	area.area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(_area2d) -> void:
+func _on_area_entered(_area2d: Area2D) -> void:
 	shape.call_deferred("set_disabled", true)
 	animation_player.play("pickup")

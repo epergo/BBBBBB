@@ -9,6 +9,6 @@ func _ready() -> void:
 	area.area_entered.connect(_on_handle_area_entered)
 
 
-func _on_handle_area_entered(_area2d) -> void:
+func _on_handle_area_entered(_area2d: Area2D) -> void:
 	area.disconnect("area_entered", Callable(self, "_on_handle_area_entered"))
 	player_won.emit()

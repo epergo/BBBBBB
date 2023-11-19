@@ -53,6 +53,7 @@ size = Vector2(12, 24)
 collision_mask = 24
 floor_block_on_wall = false
 script = ExtResource("1")
+going_down = null
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.06

@@ -34,18 +34,18 @@ func _ready() -> void:
 	collectablesArea.area_entered.connect(_on_collectables_area_entered)
 
 
-func _physics_process(_delta) -> void:
+func _physics_process(_delta: float) -> void:
 	if (
 		(is_on_floor() || !coyoteTimer.is_stopped())
 		&& Input.is_action_just_pressed("change_gravity")
 	):
 		going_down = !going_down
 
-	var direction = get_direction()
+	var direction := get_direction()
 
 	_velocity = calculate_move_velocity(_velocity, direction)
 
-	var was_on_floor = is_on_floor()
+	var was_on_floor := is_on_floor()
 	set_velocity(_velocity)
 	set_up_direction(where_is_up())
 	move_and_slide()
@@ -154,9 +154,9 @@ func emit_footstep_particles() -> void:
 	add_sibling(particlesInstance)
 
 
-func _on_hazard_area_entered(_body) -> void:
+func _on_hazard_area_entered(_body: Area2D) -> void:
 	call_deferred("die")
 
 
-func _on_collectables_area_entered(_diamond) -> void:
+func _on_collectables_area_entered(_diamond: Diamond) -> void:
 	diamond_collected.emit()

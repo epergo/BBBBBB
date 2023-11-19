@@ -18,7 +18,7 @@ var spawnOrientation: bool = false
 var playerScene: PackedScene = preload("res://scenes/player.tscn")
 
 
-func _ready():
+func _ready() -> void:
 	for screen in get_screens():
 		screen.change_screen.connect(_on_change_screen)
 		screen.screen_checkpoint_activated.connect(_on_handle_screen_checkpoint_activated)
@@ -35,7 +35,7 @@ func _ready():
 	spawnOrientation = _player.going_down
 
 
-func register_player(player) -> void:
+func register_player(player: Player) -> void:
 	_player = player
 	_player.died.connect(_on_player_died, CONNECT_DEFERRED)
 	_player.diamond_collected.connect(_on_diamond_collected, CONNECT_DEFERRED)

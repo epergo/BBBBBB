@@ -10,7 +10,7 @@ func _ready() -> void:
 	animationPlayer.seek(start_animation_at)
 
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	animationPlayer.set_active(!_paused)
 
 

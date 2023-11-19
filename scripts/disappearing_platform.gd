@@ -11,7 +11,7 @@ func disappear() -> void:
 	animatedSprite.play()
 
 
-func _on_animation_finished():
+func _on_animation_finished() -> void:
 	set_visible(false)
 	animatedSprite.stop()
 	collisions.set_deferred("disabled", true)
