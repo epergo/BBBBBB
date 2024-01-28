@@ -13,6 +13,8 @@ func _ready() -> void:
 	_optionsButton.pressed.connect(_on_options_pressed)
 	_exitButton.pressed.connect(_on_exit_pressed)
 
+	_playButton.grab_focus()
+
 
 func _on_play_pressed() -> void:
 	_scene_transition_manager.first_level()

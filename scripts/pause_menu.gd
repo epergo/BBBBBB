@@ -18,6 +18,8 @@ func _ready() -> void:
 	_quitButton.pressed.connect(_on_quit_pressed)
 	get_tree().paused = true
 
+	_continueButton.grab_focus()
+
 
 func unpause() -> void:
 	queue_free()
