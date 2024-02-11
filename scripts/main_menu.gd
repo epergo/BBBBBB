@@ -9,6 +9,8 @@ var _scene_transition_manager: SceneTransitionManager = $"/root/SceneTransitionM
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	_playButton.pressed.connect(_on_play_pressed)
 	_optionsButton.pressed.connect(_on_options_pressed)
 	_exitButton.pressed.connect(_on_exit_pressed)

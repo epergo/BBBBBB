@@ -13,6 +13,8 @@ var _scene_transition_manager: SceneTransitionManager = $"/root/SceneTransitionM
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	_continueButton.pressed.connect(_on_continue_pressed)
 	_optionsButton.pressed.connect(_on_options_pressed)
 	_quitButton.pressed.connect(_on_quit_pressed)
@@ -22,6 +24,8 @@ func _ready() -> void:
 
 
 func unpause() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	queue_free()
 	get_tree().paused = false
 

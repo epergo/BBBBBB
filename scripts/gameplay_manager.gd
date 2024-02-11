@@ -16,6 +16,8 @@ var times_player_died: int = 0
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	change_level(0, false)
 
 
