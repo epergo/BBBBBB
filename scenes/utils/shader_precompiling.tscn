@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://t4ohh1mjr8xt"]
+
+[ext_resource type="Shader" path="res://shaders/player_dash_particles.gdshader" id="1_pijea"]
+[ext_resource type="Shader" path="res://shaders/screen_transition.gdshader" id="2_g7m6k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vratv"]
+shader = ExtResource("1_pijea")
+shader_parameter/baseColor = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o12eg"]
+shader = ExtResource("2_g7m6k")
+shader_parameter/percent = null
+
+[node name="ShaderPrecompiling" type="Node2D"]
+
+[node name="PlayerDash" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vratv")
+
+[node name="SceneTransition" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_o12eg")
