@@ -77,8 +77,10 @@ func _on_player_won() -> void:
 
 	var levelComplete: LevelComplete = levelCompleteScene.instantiate()
 	add_child(levelComplete)
+	get_tree().paused = true
 
 	await levelComplete.next_level_pressed
+	get_tree().paused = false
 
 	levelComplete.queue_free()
 	increment_level()
