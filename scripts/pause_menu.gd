@@ -4,8 +4,6 @@ extends CanvasLayer
 @onready
 var _continueButton: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ContinueButton
 @onready
-var _optionsButton: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton
-@onready
 var _quitButton: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenuButton
 
 @onready
@@ -16,7 +14,6 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	_continueButton.pressed.connect(_on_continue_pressed)
-	_optionsButton.pressed.connect(_on_options_pressed)
 	_quitButton.pressed.connect(_on_quit_pressed)
 	get_tree().paused = true
 
@@ -32,11 +29,6 @@ func unpause() -> void:
 
 func _on_continue_pressed() -> void:
 	unpause()
-
-
-func _on_options_pressed() -> void:
-	# TODO Options menu
-	pass
 
 
 func _on_quit_pressed() -> void:

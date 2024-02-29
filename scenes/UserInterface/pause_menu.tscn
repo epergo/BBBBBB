@@ -41,10 +41,6 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Continue"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
 [node name="MainMenuButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit to Menu"

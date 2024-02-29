@@ -1,7 +1,6 @@
 class_name MainMenu extends CanvasLayer
 
 @onready var _playButton: Button = %PlayButton
-@onready var _optionsButton: Button = %OptionsButton
 @onready var _exitButton: Button = %ExitButton
 
 @onready
@@ -12,7 +11,6 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	_playButton.pressed.connect(_on_play_pressed)
-	_optionsButton.pressed.connect(_on_options_pressed)
 	_exitButton.pressed.connect(_on_exit_pressed)
 
 	_playButton.grab_focus()
@@ -20,10 +18,6 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	_scene_transition_manager.first_level()
-
-
-func _on_options_pressed() -> void:
-	pass
 
 
 func _on_exit_pressed() -> void:
