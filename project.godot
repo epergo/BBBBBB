@@ -20,6 +20,7 @@ target_fps="60"
 
 Helper="*res://scripts/helpers.gd"
 SceneTransitionManagerSingleton="*res://scenes/utils/scene_transition_manager.tscn"
+AudioManagerSingleton="*res://scenes/utils/audio_manager.tscn"
 
 [debug]
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj7ihsicyl3ir"]
+
+[ext_resource type="AudioStream" uid="uid://dt4v1xdu4mrkq" path="res://assets/audio/ui/click5.ogg" id="1_41d38"]
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_byc4b"]
+[ext_resource type="AudioStream" uid="uid://5atmx7spnqyk" path="res://assets/audio/ui/confirmation_002.ogg" id="2_2hd4f"]
+[ext_resource type="AudioStream" uid="uid://cu4uudbo1edd3" path="res://assets/audio/ui/back_002.ogg" id="4_lobiu"]
+[ext_resource type="AudioStream" uid="uid://qxg6ntthu6fa" path="res://assets/audio/ui/confirmation_001.ogg" id="5_gbk38"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_byc4b")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="ButtonFocusChange" type="AudioStreamPlayer" parent="UI"]
+unique_name_in_owner = true
+stream = ExtResource("1_41d38")
+
+[node name="StartPlaying" type="AudioStreamPlayer" parent="UI"]
+unique_name_in_owner = true
+stream = ExtResource("2_2hd4f")
+
+[node name="Back" type="AudioStreamPlayer" parent="UI"]
+unique_name_in_owner = true
+stream = ExtResource("4_lobiu")
+
+[node name="Continue" type="AudioStreamPlayer" parent="UI"]
+unique_name_in_owner = true
+stream = ExtResource("5_gbk38")
