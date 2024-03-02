@@ -8,8 +8,12 @@ const SPRITE_SIZE := 24
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyoteTimer: Timer = $CoyoteTimer
 @onready var dashParticles: CPUParticles2D = $DashParticles
+@onready var _random_audio_stream: RandomAudioStreamPlayer = $Sounds/RandomAudioStreamPlayer
 
 @onready var _helpers: Helpers = $"/root/Helper"
+
+@onready var _go_up_audio: AudioStreamPlayer = $Sounds/GoUp
+@onready var _go_down_audio: AudioStreamPlayer = $Sounds/GoDown
 
 var playerDeathScene := preload("res://scenes/player_death.tscn")
 var footstepParticles := preload("res://scenes/footsteps_particles.tscn")
@@ -33,13 +37,21 @@ func _ready() -> void:
 	enemiesArea.area_entered.connect(_on_hazard_area_entered)
 	collectablesArea.area_entered.connect(_on_collectables_area_entered)
 
+	animatedSprite.frame_changed.connect(_play_footsteps_sound)
+
+func change_gravity() -> void:
+	going_down = !going_down
+	if going_down:
+		_go_down_audio.play()
+	else:
+		_go_up_audio.play()
 
 func _physics_process(_delta: float) -> void:
 	if (
 		(is_on_floor() || !coyoteTimer.is_stopped())
 		&& Input.is_action_just_pressed("change_gravity")
 	):
-		going_down = !going_down
+		change_gravity()
 
 	var direction := get_direction()
 
@@ -160,3 +172,8 @@ func _on_hazard_area_entered(_body: Area2D) -> void:
 
 func _on_collectables_area_entered(_diamond: Diamond) -> void:
 	diamond_collected.emit()
+
+
+func _play_footsteps_sound() -> void:
+	if animatedSprite.animation == "run" && animatedSprite.frame == 0:
+		_random_audio_stream.play()

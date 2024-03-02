@@ -1,9 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://tedkolygwtj4"]
+[gd_scene load_steps=23 format=3 uid="uid://tedkolygwtj4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1"]
 [ext_resource type="Shader" path="res://shaders/player_dash_particles.gdshader" id="2_pf8qb"]
 [ext_resource type="Texture2D" uid="uid://vu8ec3h7f7ly" path="res://assets/art/player/character_0002.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://pdgs37qfb5ec" path="res://assets/art/player/character_0003.png" id="4"]
+[ext_resource type="AudioStream" uid="uid://dx6pdprey1v2b" path="res://assets/audio/forceField_004.ogg" id="5_2rf2u"]
+[ext_resource type="AudioStream" uid="uid://bidwsbeirpwab" path="res://assets/audio/forceField_001.ogg" id="6_fqfeb"]
+[ext_resource type="Script" path="res://scripts/random_audio_stream_player.gd" id="7_snkm5"]
+[ext_resource type="AudioStream" uid="uid://ctxq4ihabvrkc" path="res://assets/audio/footsteps/footstep_grass_000.ogg" id="8_vt8c1"]
+[ext_resource type="AudioStream" uid="uid://ckot7uqdy0rfj" path="res://assets/audio/footsteps/footstep_grass_001.ogg" id="9_y2csi"]
+[ext_resource type="AudioStream" uid="uid://cf5mlaasn118v" path="res://assets/audio/footsteps/footstep_grass_002.ogg" id="10_xauba"]
+[ext_resource type="AudioStream" uid="uid://c48ihj7ituckc" path="res://assets/audio/footsteps/footstep_grass_003.ogg" id="11_k1jl7"]
+[ext_resource type="AudioStream" uid="uid://mkqsufils2p" path="res://assets/audio/footsteps/footstep_grass_004.ogg" id="12_voqor"]
+[ext_resource type="AudioStream" uid="uid://e0tkqb6duo55" path="res://assets/audio/footsteps/footstep_concrete_000.ogg" id="13_7su1u"]
+[ext_resource type="AudioStream" uid="uid://m3r2su3qmpyo" path="res://assets/audio/footsteps/footstep_concrete_001.ogg" id="14_ftkig"]
+[ext_resource type="AudioStream" uid="uid://14olc3smosyj" path="res://assets/audio/footsteps/footstep_concrete_002.ogg" id="15_d42ni"]
+[ext_resource type="AudioStream" uid="uid://brslvevmumxcs" path="res://assets/audio/footsteps/footstep_concrete_003.ogg" id="16_ir87b"]
+[ext_resource type="AudioStream" uid="uid://dsy62dsygcty" path="res://assets/audio/footsteps/footstep_concrete_004.ogg" id="17_vrl22"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2w1u"]
 shader = ExtResource("2_pf8qb")
@@ -53,7 +66,6 @@ size = Vector2(12, 24)
 collision_mask = 24
 floor_block_on_wall = false
 script = ExtResource("1")
-going_down = null
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.06
@@ -102,3 +114,57 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_16xwx")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="GoUp" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_2rf2u")
+volume_db = -15.0
+
+[node name="GoDown" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_fqfeb")
+volume_db = -15.0
+
+[node name="RandomAudioStreamPlayer" type="Node" parent="Sounds"]
+script = ExtResource("7_snkm5")
+numberToPlay = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("8_vt8c1")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("9_y2csi")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("10_xauba")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("11_k1jl7")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("12_voqor")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("13_7su1u")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("14_ftkig")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("15_d42ni")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("16_ir87b")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Sounds/RandomAudioStreamPlayer"]
+stream = ExtResource("17_vrl22")
+volume_db = -15.0
