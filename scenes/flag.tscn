@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://g3ow8iagku54"]
+[gd_scene load_steps=8 format=3 uid="uid://g3ow8iagku54"]
 
 [ext_resource type="Texture2D" uid="uid://bswp1vhx4qsdp" path="res://assets/art/flag/tile_0131.png" id="1_ouvv7"]
 [ext_resource type="Script" path="res://scripts/flag.gd" id="1_rhy15"]
 [ext_resource type="Texture2D" uid="uid://dto5tgqygcls" path="res://assets/art/flag/tile_0111.png" id="2_aan2k"]
 [ext_resource type="Texture2D" uid="uid://dwi2kgqcw8ui5" path="res://assets/art/flag/tile_0112.png" id="3_ka5j2"]
+[ext_resource type="AudioStream" uid="uid://bc2531owdoieb" path="res://assets/audio/upgrade3.ogg" id="5_uoym6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nat23"]
 size = Vector2(11, 35)
@@ -41,3 +42,7 @@ texture_filter = 1
 position = Vector2(9, -27)
 sprite_frames = SubResource("SpriteFrames_3xeld")
 autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uoym6")
+volume_db = -5.0

@@ -11,6 +11,9 @@ func ui_start_playing() -> void:
 func ui_continue() -> void:
 	_continue.play()
 
+func ui_next_level() -> void:
+	_continue.play()
+
 func ui_back() -> void:
 	_back.play()
 
