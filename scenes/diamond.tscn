@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://lwlmxbnxbdrf"]
+[gd_scene load_steps=12 format=3 uid="uid://lwlmxbnxbdrf"]
 
 [ext_resource type="Texture2D" uid="uid://bs8pegkpvpm7r" path="res://assets/art/diamond/diamond.png" id="1"]
 [ext_resource type="Script" path="res://scripts/diamond.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://b6cp8r8pfpbl3" path="res://assets/audio/coin4.ogg" id="3_o4jo7"]
 
 [sub_resource type="Animation" id="6"]
 resource_name = "idle"
@@ -104,10 +105,10 @@ radius = 8.0
 script = ExtResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_5pgea")
 }
+autoplay = "idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -120,3 +121,6 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 shape = SubResource("1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o4jo7")
