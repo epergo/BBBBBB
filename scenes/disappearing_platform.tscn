@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch2pmhhogecrl"]
+[gd_scene load_steps=10 format=3 uid="uid://ch2pmhhogecrl"]
 
 [ext_resource type="Texture2D" uid="uid://dx34e4x0cftj" path="res://assets/art/Platform4.png" id="1"]
 [ext_resource type="Script" path="res://scripts/disappearing_platform.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://b6om2s8kmsthl" path="res://assets/audio/lose3.ogg" id="3_n6442"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 8)
@@ -54,5 +55,9 @@ shape = SubResource("1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("6")
 animation = &"disappear"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n6442")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
