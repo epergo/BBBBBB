@@ -13,12 +13,14 @@ var diamonds_found: int = 0
 var times_player_died: int = 0
 
 @onready var _hud: HUD = $HUD
+@onready var _audio_manager: AudioManager = $"/root/AudioManagerSingleton"
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	change_level(0, false)
+	_audio_manager.start_background_music()
 
 
 func change_level(levelIndex: int, show_transition: bool = true) -> void:

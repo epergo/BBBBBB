@@ -11,6 +11,8 @@ var _scene_transition_manager: SceneTransitionManager = $"/root/SceneTransitionM
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+	_audio_manager.stop_background_music()
+
 	_playButton.pressed.connect(_on_play_pressed)
 	_exitButton.pressed.connect(_on_exit_pressed)
 
