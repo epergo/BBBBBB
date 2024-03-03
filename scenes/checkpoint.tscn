@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0kk7xjk0bvpw"]
+[gd_scene load_steps=8 format=3 uid="uid://d0kk7xjk0bvpw"]
 
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dxr4dlss642n0" path="res://assets/art/checkpoint/tile_0065.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dylq4vodawu0u" path="res://assets/art/checkpoint/tile_0066.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bkyyae6bqbmc3" path="res://assets/art/checkpoint/tile_0064.png" id="5"]
+[ext_resource type="AudioStream" uid="uid://bdledtfvmqoik" path="res://assets/audio/switch1.ogg" id="5_o6ana"]
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(16, 12)
@@ -70,3 +71,6 @@ texture_filter = 1
 position = Vector2(0, -9)
 sprite_frames = SubResource("4")
 animation = &"unchecked"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o6ana")

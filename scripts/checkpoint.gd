@@ -4,6 +4,7 @@ signal checkpoint_activated
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $Area2D
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var active: bool = false
 
@@ -29,6 +30,7 @@ func _on_player_entered(body: Node2D) -> void:
 	active = true
 	animatedSprite.play("turn_on")
 	checkpoint_activated.emit(self)
+	audio_player.play()
 
 
 func disable() -> void:
