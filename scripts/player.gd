@@ -170,7 +170,7 @@ func _on_hazard_area_entered(_body: Area2D) -> void:
 	call_deferred("die")
 
 
-func _on_collectables_area_entered(_diamond: Diamond) -> void:
+func _on_collectables_area_entered(_diamond: Node2D) -> void:
 	diamond_collected.emit()
 
 
