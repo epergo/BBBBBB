@@ -1,15 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://jqyq45rbpo2n"]
+[gd_scene load_steps=12 format=3 uid="uid://jqyq45rbpo2n"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_cdo3w"]
+[ext_resource type="Script" uid="uid://bnnou5m2580ga" path="res://scripts/main_menu.gd" id="1_cdo3w"]
 [ext_resource type="Theme" uid="uid://cxbrm7d7tjurl" path="res://assets/theme/theme.tres" id="1_r1snf"]
 [ext_resource type="TileSet" uid="uid://d132new035nvj" path="res://assets/art/tileset/floor.tres" id="2_e7is7"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="2_eotms"]
+[ext_resource type="Script" uid="uid://53dyslk7gvoo" path="res://scripts/camera.gd" id="2_eotms"]
 [ext_resource type="PackedScene" uid="uid://drggo8rnec4t3" path="res://scenes/clouds.tscn" id="3_eu6lx"]
 [ext_resource type="PackedScene" uid="uid://b5vaghkntofef" path="res://scenes/moving_platform.tscn" id="5_ep0r5"]
 [ext_resource type="Texture2D" uid="uid://cid8qrmr0lg2w" path="res://assets/art/spikes/tile_0068.png" id="6_702oc"]
 [ext_resource type="PackedScene" uid="uid://g3ow8iagku54" path="res://scenes/flag.tscn" id="7_rd823"]
 [ext_resource type="PackedScene" uid="uid://d0kk7xjk0bvpw" path="res://scenes/checkpoint.tscn" id="8_yk68n"]
-[ext_resource type="PackedScene" uid="uid://t4ohh1mjr8xt" path="res://scenes/utils/shader_precompiling.tscn" id="10_fsug0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_aquvr"]
 
@@ -21,8 +20,6 @@ point_count = 2
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_cdo3w")
-
-[node name="ShaderPrecompiling" parent="." instance=ExtResource("10_fsug0")]
 
 [node name="MenuBackground" type="Node2D" parent="."]
 

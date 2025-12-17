@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt1rv7kupterj"]
 
-[ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_ypbm0"]
+[ext_resource type="Script" uid="uid://b2867dlra1dcl" path="res://scripts/base_screen.gd" id="1_ypbm0"]
 [ext_resource type="TileSet" uid="uid://d132new035nvj" path="res://assets/art/tileset/floor.tres" id="2_mkaeo"]
 
 [sub_resource type="RectangleShape2D" id="1"]
